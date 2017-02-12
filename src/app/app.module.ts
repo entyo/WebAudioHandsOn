@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SoundWaveComponent } from './sound-wave/sound-wave.component';
+import { SoundHistogramComponent } from './sound-histogram/sound-histogram.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SoundWaveComponent
+    SoundWaveComponent,
+    SoundHistogramComponent
   ],
   imports: [
     BrowserModule,
