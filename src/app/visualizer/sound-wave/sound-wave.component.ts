@@ -26,9 +26,9 @@ export class SoundWaveComponent implements AfterViewInit {
     waveCanvas = this.waveCanvas.nativeElement;
     this.canvasCtx = waveCanvas.getContext("2d");
     this.canvasCtx.clearRect(0, 0, this.canvasCtx.canvas.width, this.canvasCtx.canvas.height);
-    this.canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+    this.canvasCtx.fillStyle = 'rgb(0, 0, 0)';
     this.canvasCtx.lineWidth = 2;
-    this.canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+    this.canvasCtx.strokeStyle = 'rgb(0, 255, 0)';
     navigator.mediaDevices.getUserMedia({
       audio: true
     })

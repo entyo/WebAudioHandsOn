@@ -8,6 +8,8 @@ import { SoundWaveComponent } from './visualizer/sound-wave/sound-wave.component
 import { SoundHistogramComponent } from './visualizer/sound-histogram/sound-histogram.component';
 import { VisualizerComponent } from './visualizer/visualizer.component'
 
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { VisualizerComponent } from './visualizer/visualizer.component'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Ng2BootstrapModule.forRoot()
   ],
   bootstrap: [ AppComponent ]
 })

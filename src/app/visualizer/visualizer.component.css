@@ -1,0 +1,10 @@
+#visualizer-select {
+  width: 300px;
+  height: 40px;
+}
+
+#visualizer {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
