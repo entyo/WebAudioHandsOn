@@ -20,7 +20,7 @@ export class SoundWaveComponent implements AfterViewInit {
     this.analyser.fftSize = 2048;
   }
 
-  // Canvas(#wave)が初期化されたあとに実行される
+  // Canvasが初期化されたあとに実行される
   ngAfterViewInit() {
     let waveCanvas: HTMLCanvasElement;
     waveCanvas = this.waveCanvas.nativeElement;
