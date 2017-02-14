@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SoundWaveComponent } from './sound-wave/sound-wave.component';
-import { SoundHistogramComponent } from './sound-histogram/sound-histogram.component';
+import { SoundWaveComponent } from './visualizer/sound-wave/sound-wave.component'
+import { SoundHistogramComponent } from './visualizer/sound-histogram/sound-histogram.component';
 import { VisualizerComponent } from './visualizer/visualizer.component'
 
 @NgModule({
