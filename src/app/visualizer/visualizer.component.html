@@ -1,0 +1,8 @@
+<app-sound-wave *ngIf="selectedWay == 'wave'"></app-sound-wave>
+<app-sound-histogram *ngIf="selectedWay == 'histogram'"></app-sound-histogram>
+<div>
+  <label for="visualizer-select">ヴィジュアライザを選択</label>
+  <select type="number" id="visualizer-select" name="visualizationWay" [(ngModel)]="selectedWay" (ngModelChange)="selectedWay=$event; onChange();">
+    <option *ngFor="let way of ways" [ngValue]="way">{{way}}</option>
+  </select>
+</div>

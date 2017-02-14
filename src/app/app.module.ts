@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SoundWaveComponent } from './sound-wave/sound-wave.component';
 import { SoundHistogramComponent } from './sound-histogram/sound-histogram.component';
+import { VisualizerComponent } from './visualizer/visualizer.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SoundWaveComponent,
-    SoundHistogramComponent
+    SoundHistogramComponent,
+    VisualizerComponent
   ],
   imports: [
     BrowserModule,
