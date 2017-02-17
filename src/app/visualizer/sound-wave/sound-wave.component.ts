@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { AudioService } from '../../audio.service';
 
 @Component({
   selector: 'app-sound-wave',
@@ -7,18 +8,13 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 })
 
 export class SoundWaveComponent implements AfterViewInit {
-  private canvasCtx: CanvasRenderingContext2D;
-  private audioCtx: AudioContext;
+  private canvasCtx: CanvasRenderingContext2D;  
   private analyser: AnalyserNode;
   private requestID: number;
 
   @ViewChild("wave") waveCanvas;
 
-  constructor() {
-    this.audioCtx = new AudioContext()
-    this.analyser = this.audioCtx.createAnalyser();
-    this.analyser.fftSize = 2048;
-  }
+  constructor(private audio: AudioService) {}
 
   // Canvasが初期化されたあとに実行される
   ngAfterViewInit() {
@@ -29,16 +25,8 @@ export class SoundWaveComponent implements AfterViewInit {
     this.canvasCtx.fillStyle = 'rgb(0, 0, 0)';
     this.canvasCtx.lineWidth = 2;
     this.canvasCtx.strokeStyle = 'rgb(0, 255, 0)';
-    navigator.mediaDevices.getUserMedia({
-      audio: true
-    })
-    .then(
-      stream => { 
-        let source = this.audioCtx.createMediaStreamSource(stream);
-        source.connect(this.analyser);
-        this.draw();
-      }
-    );
+    this.analyser = this.audio.getAnalyser();
+    this.draw();
   }
 
   draw() {

@@ -1,0 +1,9 @@
+<div>
+  <label for="filter-select">フィルターを選択</label>
+  <div *ngFor="let filter of filters" id="filter-select">
+    <label>
+      <input type="checkbox" name="filters" [(ngModel)]="filter.checked" (ngModelChange)="onChange();">
+      {{filter.name}}
+    </label>
+  </div>
+</div>

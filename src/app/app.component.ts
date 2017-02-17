@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { VisualizerComponent } from './visualizer/visualizer.component';
 
 @Component({
@@ -6,6 +6,7 @@ import { VisualizerComponent } from './visualizer/visualizer.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = '音の可視化';
+  private title: string = '音の可視化';
 }

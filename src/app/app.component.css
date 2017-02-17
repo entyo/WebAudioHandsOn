@@ -1,0 +1,9 @@
+#content {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+app-filter {
+  margin-top: 20px;
+}

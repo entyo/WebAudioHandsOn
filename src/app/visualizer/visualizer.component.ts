@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-visualizer',
@@ -6,14 +6,14 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./visualizer.component.css']
 })
 export class VisualizerComponent {
-  private ways: Array<string> = [
+  private visualizers: Array<string> = [
     "histogram",
     "wave"
   ];
-  private selectedWay: string = this.ways[0];
+  private selectedVisualizer: string = this.visualizers[0];
 
   onChange() {
-    console.log("selectedWay: ", this.selectedWay);
+    console.log("selectedVisualizer: ", this.selectedVisualizer);
   };
 
 }
