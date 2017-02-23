@@ -29,11 +29,7 @@ import { AudioService } from './audio.service'
   ],
   bootstrap: [ AppComponent ],
   providers: [
-    AudioService,
-    {
-      provide: 'audioContext',
-      useValue: new(window['AudioContext'] || window['webkitAudioContext'])
-    }
+    AudioService
   ]
 })
 export class AppModule { }

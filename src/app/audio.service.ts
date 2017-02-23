@@ -1,4 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
+import * as global from './global';
 
 @Injectable()
 export class AudioService {
@@ -6,8 +7,8 @@ export class AudioService {
   analyser: AnalyserNode;
   filters: Array<any>;
   
-  constructor(@Inject('audioContext') private audioCtx: AudioContext) {
-    this.analyser = this.audioCtx.createAnalyser();
+  constructor() {
+    this.analyser = global.audioContext.createAnalyser();
 
     this.filters = [
       {
@@ -25,9 +26,9 @@ export class AudioService {
     })
     .then(
       stream => {
-        this.source = this.audioCtx.createMediaStreamSource(stream);
+        this.source = global.audioContext.createMediaStreamSource(stream);
         this.source.connect(this.analyser);
-        this.analyser.connect(this.audioCtx.destination);
+        this.analyser.connect(global.audioContext.destination);
       }
     );
   }
@@ -43,7 +44,7 @@ export class AudioService {
     // 繋ぐフィルタがないなら、アナライザだけ繋ぐ
     if (connectedFilters.length == 0) {
       this.source.connect(this.analyser);
-      this.analyser.connect(this.audioCtx.destination);
+      this.analyser.connect(global.audioContext.destination);
       return
     }
 
@@ -55,7 +56,7 @@ export class AudioService {
 
       this.source.connect(connectedNode);
       connectedNode.connect(this.analyser);
-      this.analyser.connect(this.audioCtx.destination)
+      this.analyser.connect(global.audioContext.destination)
 
       return 
     }
@@ -76,7 +77,7 @@ export class AudioService {
       else if (i == connectedFilters.length - 1) {
         lastConnectedNode.connect(connectedNode);
         connectedNode.connect(this.analyser);
-        this.analyser.connect(this.audioCtx.destination);
+        this.analyser.connect(global.audioContext.destination);
       }
       // それ以外(2つのフィルタの間にあるフィルタ)
       else {
@@ -98,7 +99,7 @@ export class AudioService {
   }
 
   createLowShelfFilter() : BiquadFilterNode {
-    let biquadForLow = this.audioCtx.createBiquadFilter();
+    let biquadForLow = global.audioContext.createBiquadFilter();
     biquadForLow.type = 'lowshelf';
     biquadForLow.frequency.value = 1000;
     biquadForLow.gain.value = 25;
@@ -106,7 +107,7 @@ export class AudioService {
   }
 
   createHighShelfFilter() : BiquadFilterNode {
-    let biquadForHigh = this.audioCtx.createBiquadFilter();
+    let biquadForHigh = global.audioContext.createBiquadFilter();
     biquadForHigh.type = 'highshelf';
     biquadForHigh.frequency.value = 1000;
     biquadForHigh.gain.value = 25;

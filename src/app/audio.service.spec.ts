@@ -8,10 +8,7 @@ describe('AudioService', () => {
   console.log(ctx);
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [{
-          providers: "audioContext",
-          useValue: new (window['AudioContext'] || window['webkitAudioContext'])()
-        },
+      providers: [
         AudioService
       ]
     });
