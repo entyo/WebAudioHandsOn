@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SoundWaveComponent } from './sound-wave.component';
+import { AudioService } from '../../audio.service';
 
 describe('SoundWaveComponent', () => {
   let component: SoundWaveComponent;
@@ -11,7 +12,8 @@ describe('SoundWaveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SoundWaveComponent ]
+      declarations: [ SoundWaveComponent ],
+      providers: [ AudioService ]
     })
     .compileComponents();
   }));

@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SoundHistogramComponent } from './sound-histogram.component';
+import { AudioService } from '../../audio.service';
 
 describe('SoundHistogramComponent', () => {
   let component: SoundHistogramComponent;
@@ -11,7 +12,8 @@ describe('SoundHistogramComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SoundHistogramComponent ]
+      declarations: [ SoundHistogramComponent ],
+      providers: [ AudioService ]
     })
     .compileComponents();
   }));

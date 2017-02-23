@@ -4,6 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { FilterComponent } from './filter.component';
+import { FormsModule } from '@angular/forms';
+
+import { AudioService } from '../audio.service';
 
 describe('FilterComponent', () => {
   let component: FilterComponent;
@@ -11,7 +14,11 @@ describe('FilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterComponent ]
+      imports: [ FormsModule ],
+      declarations: [ FilterComponent ],
+      providers: [ 
+        AudioService
+      ]
     })
     .compileComponents();
   }));
