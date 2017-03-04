@@ -21,11 +21,15 @@ export class AudioService {
       }
     ];
 
+    this.setupPlainAudioGraph();
+  }
+
+  setupPlainAudioGraph() {
     navigator.mediaDevices.getUserMedia({
       audio: true
     })
     .then(
-      stream => {
+      stream => { 
         this.source = global.audioContext.createMediaStreamSource(stream);
         this.source.connect(this.analyser);
         this.analyser.connect(global.audioContext.destination);
@@ -90,7 +94,7 @@ export class AudioService {
   }
 
   disconnectAll() {
-    this.source.disconnect();
+    if(this.source) this.source.disconnect();
     this.analyser.disconnect();
     this.filters.forEach(obj => {
       let filter: AudioNode = obj['value'];

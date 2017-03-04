@@ -7,6 +7,7 @@ import { FilterComponent } from './filter/filter.component';
 import { SoundWaveComponent } from './visualizer/sound-wave/sound-wave.component';
 import { SoundHistogramComponent } from './visualizer/sound-histogram/sound-histogram.component';
 import { AudioService } from './audio.service';
+import { FakeAudioService } from './fake-audio.service';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -22,26 +23,25 @@ describe('AppComponent', () => {
         FilterComponent
       ],
       providers: [
-        AudioService,
-        {
-          provide: 'audioContext',
-          useValue: new(window['AudioContext'] || window['webkitAudioContext'])
-        }
+        // stubなserviceをinjectする
+        { provide: AudioService, useClass: FakeAudioService}
       ]
     });
     TestBed.compileComponents();
   });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  describe('正常系: ', () => {
+    it('should create the app', async(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      expect(app).toBeTruthy();
+    }));
 
-  it(`should have as title '音の可視化'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('音の可視化');
-  }));
+    it(`should have as title '音の可視化'`, async(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      expect(app.title).toEqual('音の可視化');
+    }));
+  });
 
 });

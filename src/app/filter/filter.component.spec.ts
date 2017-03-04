@@ -7,29 +7,38 @@ import { FilterComponent } from './filter.component';
 import { FormsModule } from '@angular/forms';
 
 import { AudioService } from '../audio.service';
+import { FakeAudioService } from '../fake-audio.service';
 
 describe('FilterComponent', () => {
   let component: FilterComponent;
   let fixture: ComponentFixture<FilterComponent>;
+  let audioService: AudioService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ],
       declarations: [ FilterComponent ],
       providers: [ 
-        AudioService
+        {
+          provide: AudioService,
+          useClass: FakeAudioService
+        }
       ]
-    })
-    .compileComponents();
-  }));
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(FilterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    audioService = TestBed.get(AudioService);
+  }));
+
+  describe('正常系: ', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
