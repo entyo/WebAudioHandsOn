@@ -105,7 +105,7 @@ export class AudioService {
   createLowShelfFilter() : BiquadFilterNode {
     let biquadForLow = global.audioContext.createBiquadFilter();
     biquadForLow.type = 'lowshelf';
-    biquadForLow.frequency.value = 1000;
+    biquadForLow.frequency.value = 400;
     biquadForLow.gain.value = 25;
     return biquadForLow;
   }
@@ -113,7 +113,7 @@ export class AudioService {
   createHighShelfFilter() : BiquadFilterNode {
     let biquadForHigh = global.audioContext.createBiquadFilter();
     biquadForHigh.type = 'highshelf';
-    biquadForHigh.frequency.value = 1000;
+    biquadForHigh.frequency.value = 750;
     biquadForHigh.gain.value = 25;
     return biquadForHigh;
   }
