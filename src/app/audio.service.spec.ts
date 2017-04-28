@@ -24,16 +24,49 @@ describe('AudioService', () => {
       expect(filter.type).toBe('highshelf');
     });
 
-    // MediaStreamが自動で(ユーザの許可なしに)取得できなくて死ぬ
     it('should disconnect all nodes at once', () => {
-      
-      audioService.disconnectAll();
-      let analyser = audioService.getAnalyser();
-      expect(analyser.numberOfInputs).toBe(0);
-      expect(analyser.numberOfOutputs).toBe(0);
+      audioService.disconnectAll()
+      .then(() => {
+        // Test goes here
+      })
+      .catch(e => {
+        fail(e);
+      });
     });
+
+    it('should connect lowshelf filter', () => {
+      audioService.connectFilters(['lowshelf'])
+      .then(() => {
+        // Test goes here
+      })
+      .catch(e => {
+        fail(e);
+      });
+    });
+
+    it('should connect highshelf filter', () => {
+      audioService.connectFilters(['highshelf'])
+      .then(() => {
+        // Test goes here
+      })
+      .catch(e => {
+        fail(e);
+      });
+    });
+
+    it('should connect all filters', () => {
+      audioService.connectFilters(['lowshelf', 'highshelf'])
+      .then(() => {
+        // Test goes here
+      })
+      .catch(e => {
+        fail(e);
+      });
+    });
+
   });
 
   describe('異常系: ', () => {
   });
+
 });

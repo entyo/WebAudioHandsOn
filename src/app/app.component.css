@@ -1,5 +1,11 @@
-#content {
+#container {
   width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#content {
+  width: 550px;
   margin-left: auto;
   margin-right: auto;
 }

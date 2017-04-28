@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class SoundVisualizePage {
+export class SoundVisualizerPage {
   navigateTo() {
     return browser.get('/');
   }

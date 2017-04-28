@@ -1,5 +1,4 @@
-<app-sound-wave *ngIf="selectedVisualizer == 'wave'"></app-sound-wave>
-<app-sound-histogram *ngIf="selectedVisualizer == 'histogram'"></app-sound-histogram>
+<canvas #visualizer width="500" height="100"></canvas>
 <div>
   <label for="visualizer-select">ヴィジュアライザを選択</label>
   <select type="number" id="visualizer-select" name="visualizers" [(ngModel)]="selectedVisualizer" (ngModelChange)="selectedVisualizer=$event; onChange();"

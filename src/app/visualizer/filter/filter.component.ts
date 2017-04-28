@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AudioService } from '../audio.service';
+import { AudioService } from '../../audio.service';
 
 @Component({
   selector: 'app-filter',

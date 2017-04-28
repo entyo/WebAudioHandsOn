@@ -1,10 +1,10 @@
-import { SoundVisualizePage } from './app.po';
+import { SoundVisualizerPage } from './app.po';
 
-describe('sound-visualize App', function() {
-  let page: SoundVisualizePage;
+describe('sound-visualizer App', () => {
+  let page: SoundVisualizerPage;
 
   beforeEach(() => {
-    page = new SoundVisualizePage();
+    page = new SoundVisualizerPage();
   });
 
   it('should display message saying app works', () => {
