@@ -231,7 +231,7 @@ angular-cliのプロジェクトを新規作成し、Module, Component, Service�
 ```sh
 ng new SoundVisualizer --ng4
 cd SoundVisualizer
-ng g module visualizer && cd visualizer
+ng g module visualizer && cd ./src/app/visualizer
 ng g component filter
 ng g component analyzer
 cd ..
