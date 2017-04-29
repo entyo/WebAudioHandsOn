@@ -310,7 +310,7 @@ export class VisualizerModule { }
 
 VisualizerModuleのComponentからAudioServiceを呼び出したり、逆にVisualizerModuleのComponentをよそから使えるようになりました。
 
-次に、app.module.tsに以下を記述してください。
+次に、```app.module.ts```に以下を記述してください。
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
