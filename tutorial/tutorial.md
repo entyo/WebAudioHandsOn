@@ -229,7 +229,7 @@ export class AppModule { }
 angular-cliのプロジェクトを新規作成し、Module, Component, Serviceを追加します。
 
 ```sh
-ng new SoundVisualizer --ng4
+ng new SoundVisualizer
 cd SoundVisualizer
 ng g module visualizer && cd visualizer
 ng g component filter
