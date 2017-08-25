@@ -231,7 +231,7 @@ angular-cliのプロジェクトを新規作成し、Module, Component, Service�
 ```sh
 ng new SoundVisualizer
 cd SoundVisualizer
-ng g module visualizer && cd visualizer
+ng g module visualizer && cd ./src/app/visualizer
 ng g component filter
 ng g component analyzer
 cd ..
@@ -310,7 +310,7 @@ export class VisualizerModule { }
 
 VisualizerModuleのComponentからAudioServiceを呼び出したり、逆にVisualizerModuleのComponentをよそから使えるようになりました。
 
-次に、app.module.tsに以下を記述してください。
+次に、```app.module.ts```に以下を記述してください。
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
